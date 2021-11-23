@@ -70,13 +70,13 @@ public class TrainingCourseController {
 		
 	}
 	@GetMapping("/viewallcourses")
-	public List<TrainingCourse> viewAllTrainingCourse() {
+	public ResponseEntity<List<TrainingCourse>> viewAllTrainingCourse() {
 		LOG.info("update the course");
 		List<TrainingCourse> tc=itrainingCourseService.viewAllTrainingCourse();
 		HttpHeaders headers=new HttpHeaders();
 		headers.add("message","Here the all courses");
-		ResponseEntity<TrainingCourse> response=new ResponseEntity<TrainingCourse>(headers,HttpStatus.OK);
-		return tc;
+		ResponseEntity<List<TrainingCourse>> response=new ResponseEntity<List<TrainingCourse>>(tc,headers,HttpStatus.OK);
+		return response;
 		
 	}
 	

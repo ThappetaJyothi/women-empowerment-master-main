@@ -60,6 +60,11 @@ public class ITrainingCourseService implements TrainingServices {
 	@Override
 	public List<TrainingCourse> viewAllTrainingCourse() {
            LOG.info("view all the courses");
+           List<TrainingCourse> li=trainrepo.findAll();
+           if(li.size()==0) {
+        	   throw new TrainingCourseNotFoundException("Courses  is empty");
+           }
+           
 		return trainrepo.findAll();
 	}
 
