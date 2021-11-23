@@ -84,7 +84,7 @@ public class TrainingCourseController {
 		LOG.info("view by course name");
 		TrainingCourse tc=itrainingCourseService.viewByTrainingCourseName(courseName);
 		HttpHeaders headers=new HttpHeaders();
-		headers.add("message","sucessfully find the course  "+courseName);
+		headers.add("message","sucessfully find the course  s"+courseName);
 		ResponseEntity<TrainingCourse> response=new ResponseEntity<TrainingCourse>(tc,headers,HttpStatus.OK);
 		return response;
 	}

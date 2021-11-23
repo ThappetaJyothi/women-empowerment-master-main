@@ -16,12 +16,11 @@ import com.capgemini.repository.ITrainingCourseRepository;
 
 
 @Service
-public class ITrainingCourseService {
+public class ITrainingCourseService implements TrainingServices{
 	private static final Logger LOG = LoggerFactory.getLogger(ITrainingCourseService.class);
 	@Autowired
   ITrainingCourseRepository trainrepo;
-
-	//@Override
+      @Override
 	public TrainingCourse addTrainingCourse(TrainingCourse course) {
 //           List<TrainingCourse> li=trainrepo.findByName(course.getCourseName());
 //           if(li.contains(course.getCourseName())) {
@@ -30,7 +29,7 @@ public class ITrainingCourseService {
           return trainrepo.save(course);
 	}
 
-	//@Override
+	@Override
 	public TrainingCourse updateTrainingCourse(TrainingCourse course) {
 		LOG.info("update courses");
 		if(trainrepo.existsById(course.getCourseId())) {
@@ -44,7 +43,7 @@ public class ITrainingCourseService {
 		//return null;
 	}
 
-	//@Override
+	@Override
 	public TrainingCourse viewTrainingCourse(int courseId) {
 		LOG.info("trainig course");
 		Optional<TrainingCourse> tcOpt = trainrepo.findById(courseId);
@@ -57,7 +56,7 @@ public class ITrainingCourseService {
 		}
 	}
 
-	//@Override
+	@Override
 	public List<TrainingCourse> viewAllTrainingCourse() {
            LOG.info("view all the courses");
            List<TrainingCourse> li=trainrepo.findAll();
@@ -67,7 +66,7 @@ public class ITrainingCourseService {
            
 		return trainrepo.findAll();
 	}
-   // @Override
+    @Override
 	public TrainingCourse deleteTrainingCourse(int courseId) {		
 		LOG.info("delete training course");
 		Optional<TrainingCourse> tcOpt = trainrepo.findById(courseId);
@@ -81,7 +80,7 @@ public class ITrainingCourseService {
 		}
 	}
 
-	//@Override
+	@Override
 	public TrainingCourse viewByTrainingCourseName(String courseName) {
 		LOG.info("view by courses name");
 		List<TrainingCourse> li=trainrepo.findAll();
