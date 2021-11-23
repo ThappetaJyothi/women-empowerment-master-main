@@ -79,6 +79,15 @@ public class TrainingCourseController {
 		return response;
 		
 	}
+	@GetMapping("/viewbycoursename/{courseName}")
+	public ResponseEntity<TrainingCourse> viewByCourseName(@PathVariable String courseName){
+		LOG.info("view by course name");
+		TrainingCourse tc=itrainingCourseService.viewByTrainingCourseName(courseName);
+		HttpHeaders headers=new HttpHeaders();
+		headers.add("message","sucessfully find the course  "+courseName);
+		ResponseEntity<TrainingCourse> response=new ResponseEntity<TrainingCourse>(tc,headers,HttpStatus.OK);
+		return response;
+	}
 	
 	
 
