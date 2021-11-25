@@ -1,10 +1,12 @@
 package com.capgemini.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+//import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+//import javax.persistence.EnumType;
+//import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,15 +30,15 @@ public class TrainingCourse {
 	private String courseName;
 	private String CourseDurationn;
 	private String courseStatus;
-	@Temporal(TemporalType.DATE)
-	private Date startingDate;
-	@Temporal(TemporalType.DATE)
-	private Date endingDate;
+	//@Temporal(TemporalType.DATE)
+	private LocalDate startingDate;
+	//@Temporal(TemporalType.DATE)
+	private LocalDate endingDate;
 	
 	public TrainingCourse() {
 		super();
 	}
-	public TrainingCourse( String courseName, String courseDurationn, String courseStatus,Date startingDate,Date endingDate) {
+	public TrainingCourse( String courseName, String courseDurationn, String courseStatus,LocalDate startingDate,LocalDate endingDate) {
 		super();
 	
 		this.courseName = courseName;
@@ -69,16 +71,16 @@ public class TrainingCourse {
 	public void setCourseStatus(String courseStatus) {
 		this.courseStatus = courseStatus;
 	}
-	public Date getStartingDate() {
+	public LocalDate getStartingDate() {
 		return startingDate;
 	}
-	public void setStartingDate(Date startingDate) {
+	public void setStartingDate(LocalDate startingDate) {
 		this.startingDate = startingDate;
 	}
-	public Date getEndingDate() {
+	public LocalDate getEndingDate() {
 		return endingDate;
 	}
-	public void setEndingDate(Date endingDate) {
+	public void setEndingDate(LocalDate endingDate) {
 		this.endingDate = endingDate;
 	}
 	
